@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>TrueField by Bluehill Innovation</title>
+<meta name="description" content="TrueField by Bluehill Innovation: the sweet spot follows you.">
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+/* Layout: one calm column; a live room plan as the hero, then setups, how it works, privacy, status. Dark-first, indigo brand from the app. */
+:root {
+  --bg: #0d0f16; --surface: #151827; --line: #262b45; --fg: #e6e8f2; --muted: #9aa0bd;
+  --brand: #7b93ff; --brand-text: #a5b4fc; --brand-fill: #4f5fe6; --brand-deep: #161a3a; --glow: #e0e7ff;
+  --f-display: "Sora", "Avenir Next", system-ui, sans-serif;
+  --f-body: "Manrope", "Helvetica Neue", system-ui, sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: light) { :root:not([data-theme="dark"]) {
+  --bg: #f6f7fc; --surface: #ffffff; --line: #dfe2f0; --fg: #161a2e; --muted: #5b6182;
+  --brand: #4f5fe6; --brand-text: #3a46c4; --brand-fill: #4f5fe6; --brand-deep: #eceffd; --glow: #1f2554;
+  color-scheme: light; } }
+:root[data-theme="light"] {
+  --bg: #f6f7fc; --surface: #ffffff; --line: #dfe2f0; --fg: #161a2e; --muted: #5b6182;
+  --brand: #4f5fe6; --brand-text: #3a46c4; --brand-fill: #4f5fe6; --brand-deep: #eceffd; --glow: #1f2554;
+  color-scheme: light; }
+
+body { background: var(--bg); color: var(--fg); font: 16px/1.6 var(--f-body); }
+.wrap { max-width: 1080px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { font-family: var(--f-display); text-wrap: balance; margin: 0; line-height: 1.15; }
+h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 700; letter-spacing: -0.02em; }
+h2 { font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 600; letter-spacing: -0.01em; }
+h3 { font-size: 1.1rem; font-weight: 600; }
+p { margin: 0; }
+a { color: var(--brand-text); }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--brand); outline-offset: 3px; border-radius: 4px; }
+.lede { color: var(--muted); font-size: 1.15rem; max-width: 34em; }
+.eyebrow { font: 500 0.75rem/1 var(--f-mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--brand-text); }
+
+.draft { background: var(--brand-deep); color: var(--muted); font-size: 0.85rem; text-align: center; }
+.draft .wrap { padding-block: 8px; }
+
+nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 20px; flex-wrap: wrap; }
+.mark { display: flex; align-items: center; gap: 10px; font: 400 1.25rem var(--f-display); color: var(--fg); text-decoration: none; }
+.mark b { font-weight: 700; color: var(--brand-text); }
+.maker { font: 500 0.72rem var(--f-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); padding-left: 12px; border-left: 1px solid var(--line); }
+.brandline { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.about .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+.about .wrap > * { min-width: 0; }
+.about dl { margin: 0; display: grid; grid-template-columns: 8rem 1fr; gap: 10px 16px; color: var(--muted); }
+.about dt { font: 0.8rem var(--f-mono); color: var(--brand-text); padding-top: 3px; }
+.about dd { margin: 0; }
+@media (max-width: 820px) { .about .wrap { grid-template-columns: 1fr; gap: 28px; } }
+nav ul { display: flex; gap: 22px; list-style: none; margin: 0; padding: 0; flex-wrap: wrap; }
+nav ul a { color: var(--muted); text-decoration: none; font-weight: 500; }
+nav ul a:hover { color: var(--fg); }
+
+.hero .wrap { display: grid; grid-template-columns: 1.05fr 1fr; gap: 48px; align-items: center; padding-block: 40px 72px; }
+.hero .copy { display: grid; gap: 22px; min-width: 0; }
+.cta { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+.btn { display: inline-block; padding: 12px 20px; border-radius: 10px; background: var(--brand-fill); color: #fff; font-weight: 600; text-decoration: none; }
+.btn.ghost { background: transparent; color: var(--fg); border: 1px solid var(--line); }
+.plan { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 16px; min-width: 0; }
+.plan svg { width: 100%; height: auto; display: block; }
+.plan figcaption { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font: 0.8rem var(--f-mono); color: var(--muted); padding: 8px 4px 0; font-variant-numeric: tabular-nums; }
+.plan .s-ring { fill: none; stroke: var(--brand); stroke-width: 1.5; opacity: .55; }
+.plan .s-body { fill: var(--surface); stroke: var(--fg); stroke-width: 1.5; }
+.plan .grid { stroke: var(--line); stroke-width: 1; }
+.plan .sweet { fill: none; stroke: var(--muted); stroke-dasharray: 3 4; }
+.plan .head { fill: var(--glow); }
+.plan .label { fill: var(--muted); font: 11px var(--f-mono); }
+.plan .cam { fill: var(--brand); }
+
+section { padding-block: 72px; border-top: 1px solid var(--line); }
+.sec-head { display: grid; gap: 12px; margin-bottom: 36px; max-width: 40em; }
+.sec-head p { color: var(--muted); }
+
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; counter-reset: s; list-style: none; padding: 0; margin: 0; }
+.steps li { display: grid; gap: 8px; align-content: start; min-width: 0; }
+.steps li::before { counter-increment: s; content: counter(s); font: 600 0.85rem var(--f-mono); color: var(--brand-text); width: 30px; height: 30px; border: 1px solid var(--brand); border-radius: 50%; display: grid; place-items: center; }
+.steps p, .setups p, .facts p { color: var(--muted); }
+
+.setups { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.setup { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 24px; display: grid; gap: 10px; align-content: start; min-width: 0; }
+.setup .tag { font: 0.72rem var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.setup ul { margin: 4px 0 0; padding-left: 18px; color: var(--muted); font-size: 0.95rem; }
+
+.facts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px 48px; }
+.facts div { display: grid; gap: 6px; min-width: 0; }
+
+.privacy .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+.flow { font: 0.9rem/1.9 var(--f-mono); background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 20px 24px; color: var(--muted); overflow-x: auto; min-width: 0; }
+.flow b { color: var(--fg); font-weight: 400; }
+.flow .stop { color: var(--brand-text); }
+
+.status ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 0; }
+.status li { display: grid; grid-template-columns: 9rem 1fr; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.status li span:first-child { font: 0.8rem var(--f-mono); color: var(--brand-text); padding-top: 3px; }
+.status li span:last-child { color: var(--muted); }
+
+footer .wrap { padding-block: 40px; color: var(--muted); font-size: 0.9rem; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; border-top: 1px solid var(--line); }
+
+@media (max-width: 820px) {
+  .hero .wrap, .privacy .wrap { grid-template-columns: 1fr; gap: 32px; }
+  .steps, .setups, .facts { grid-template-columns: 1fr; }
+  .status li { grid-template-columns: 1fr; gap: 2px; }
+}
+</style>
+</head>
+<body>
+
+
+<nav><div class="wrap">
+  <div class="brandline">
+  <a class="mark" href="#top" aria-label="TrueField">
+    <svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><circle cx="12.5" cy="16" r="7.5" fill="none" stroke="var(--brand)" stroke-width="2"/><circle cx="19.5" cy="16" r="7.5" fill="none" stroke="var(--brand)" stroke-width="2"/><circle cx="16" cy="16" r="2.4" fill="var(--glow)"/></svg>
+    <span>True<b>Field</b></span>
+  </a>
+  <a class="maker" href="#about" style="text-decoration:none">by Bluehill Innovation</a>
+  </div>
+  <ul>
+    <li><a href="#how">How it works</a></li>
+    <li><a href="#setups">Setups</a></li>
+    <li><a href="#privacy">Privacy</a></li>
+    <li><a href="#status">Status</a></li>
+    <li><a href="#about">About</a></li>
+  </ul>
+</div></nav>
+
+<header class="hero" id="top"><div class="wrap">
+  <div class="copy">
+    <span class="eyebrow">Head-tracked speaker balancing</span>
+    <h1>The sweet spot follows you.</h1>
+    <p class="lede">Stereo and surround only sound right in one seat. TrueField knows where you are and shapes what every speaker plays for that place, so you hear the music as it was meant to be heard, wherever you sit.</p>
+    <div class="cta">
+      <a class="btn" href="#status">Get early access</a>
+      <a class="btn ghost" href="#how">See how it works</a>
+    </div>
+  </div>
+  <figure class="plan" style="margin:0">
+    <svg viewBox="0 0 400 300" role="img" aria-label="Room plan: two speakers, a camera and a listener who moves; the sound's centre follows the listener">
+      <g class="grid">
+        <line x1="0" y1="75" x2="400" y2="75"/><line x1="0" y1="150" x2="400" y2="150"/><line x1="0" y1="225" x2="400" y2="225"/>
+        <line x1="100" y1="0" x2="100" y2="300"/><line x1="200" y1="0" x2="200" y2="300"/><line x1="300" y1="0" x2="300" y2="300"/>
+      </g>
+      <circle class="sweet" cx="200" cy="210" r="16"/>
+      <text class="label" x="222" y="232">sweet spot</text>
+      <circle id="ringL" class="s-ring" cx="110" cy="60" r="170"/>
+      <circle id="ringR" class="s-ring" cx="290" cy="60" r="170"/>
+      <rect class="s-body" x="96" y="46" width="28" height="28" rx="5"/>
+      <rect class="s-body" x="276" y="46" width="28" height="28" rx="5"/>
+      <rect class="cam" x="192" y="40" width="16" height="10" rx="2"/>
+      <text class="label" x="94" y="34">left</text><text class="label" x="276" y="34">right</text><text class="label" x="182" y="30">camera</text>
+      <circle id="head" class="head" cx="200" cy="210" r="7"/>
+    </svg>
+    <figcaption><span>listener <span id="xv">0</span> cm from centre</span><span>sound field: centred on the listener</span></figcaption>
+  </figure>
+</div></header>
+
+<section id="how"><div class="wrap">
+  <div class="sec-head">
+    <span class="eyebrow">How it works</span>
+    <h2>A camera, an audio engine, and your own speakers</h2>
+  </div>
+  <ol class="steps">
+    <li><h3>The camera finds your head</h3><p>A camera near the screen or speakers measures where you sit, in millimetres from the listening position you set up once.</p></li>
+    <li><h3>The sound is tuned to that place</h3><p>The audio engine prepares what each speaker plays for where you are, so the stereo image and the balance stay right for you, not for an empty chair.</p></li>
+    <li><h3>You only notice the music</h3><p>Move, lean back or get up: what you hear stays natural, without anything drawing your attention to the system. When you leave, the room settles back to its sweet spot.</p></li>
+  </ol>
+</div></section>
+
+<section id="setups"><div class="wrap">
+  <div class="sec-head">
+    <span class="eyebrow">Setups</span>
+    <h2>From a laptop on a desk to a hi-fi in the living room</h2>
+  </div>
+  <div class="setups">
+    <article class="setup">
+      <span class="tag">Mac</span>
+      <h3>Your Mac and its speakers</h3>
+      <p>One app in the menu bar with the tracker and the engine inside. It balances what other apps play, such as Spotify or a game.</p>
+      <ul><li>macOS 14 or later</li><li>Built-in or external camera</li><li>Signed and notarized</li></ul>
+    </article>
+    <article class="setup">
+      <span class="tag">Raspberry Pi</span>
+      <h3>A hi-fi or a home cinema</h3>
+      <p>A Raspberry Pi with its camera module runs the tracker and the engine next to your amplifier. Stream to it with Spotify Connect.</p>
+      <ul><li>Stereo up to 9 speakers, subwoofers and height speakers</li><li>Set up from any browser on your network</li></ul>
+    </article>
+    <article class="setup">
+      <span class="tag">iPhone and iPad</span>
+      <h3>Room setup in minutes</h3>
+      <p>Point your iPhone at each speaker to place it in the room plan. Then recalibrate or pause from your sofa.</p>
+      <ul><li>More precise with LiDAR (iPhone Pro, iPad Pro)</li><li>iOS 17 or later</li></ul>
+    </article>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="sec-head">
+    <span class="eyebrow">Details</span>
+    <h2>Made for real rooms</h2>
+  </div>
+  <div class="facts">
+    <div><h3>Several listeners</h3><p>Follow just the person in the listening seat, or everyone in view, with the sound balanced for the group.</p></div>
+    <div><h3>A camera that gets knocked</h3><p>It recognises the room behind you and corrects itself when the camera is turned a little.</p></div>
+    <div><h3>Your speaker layout</h3><p>Presets from stereo to 7.2.4, or place each speaker yourself in the room plan.</p></div>
+    <div><h3>Studio audio</h3><p>Works with audio interfaces and Dante Virtual Soundcard.</p></div>
+  </div>
+</div></section>
+
+<section class="privacy" id="privacy"><div class="wrap">
+  <div class="sec-head" style="margin:0">
+    <span class="eyebrow">Privacy</span>
+    <h2>The camera image stays at home</h2>
+    <p>The camera image is processed on the device the camera is connected to. Only your position goes to the audio engine. Nothing is sent to a server on the internet.</p>
+  </div>
+  <div class="flow">
+    <b>camera</b> → image → <b>tracker</b> <span class="stop">(image stops here)</span><br>
+    <b>tracker</b> → x 12, y −3, z 40 cm → <b>engine</b><br>
+    <b>engine</b> → sound for your place → <b>speakers</b>
+  </div>
+</div></section>
+
+<section class="status" id="status"><div class="wrap">
+  <div class="sec-head">
+    <span class="eyebrow">Status</span>
+    <h2>In development</h2>
+    <p>TrueField is being tested in real rooms now.</p>
+  </div>
+  <ul>
+    <li><span>Mac</span><span>Signed test builds for macOS 14 and later.</span></li>
+    <li><span>Raspberry Pi</span><span>Running in a test setup with the camera module.</span></li>
+    <li><span>iPhone and iPad</span><span>Room setup working, a check of the speakers in the room is next.</span></li>
+    <li><span>Reaper plugin</span><span>Coming: the engine as a plugin in Reaper.</span></li>
+  </ul>
+</div></section>
+
+<section class="about" id="about"><div class="wrap">
+  <div class="sec-head" style="margin:0">
+    <span class="eyebrow">About</span>
+    <h2>Bluehill Innovation</h2>
+    <p>Bluehill Innovation develops TrueField: the tracker that finds the listener, the audio engine that drives the speakers, and the apps to set it up, from the camera to the speaker.</p>
+  </div>
+  <dl>
+    <dt>Company</dt><dd>Bluehill Innovation</dd>
+    <dt>Based in</dt><dd>The Netherlands</dd>
+    <dt>Email</dt><dd>to follow</dd>
+    <dt>KvK</dt><dd>to follow</dd>
+  </dl>
+</div></section>
+
+<footer><div class="wrap"><span>© 2026 Bluehill Innovation</span><span>bluehill-innovation.com</span></div></footer>
+
+<script>
+(() => {
+  const head = document.getElementById('head'), rl = document.getElementById('ringL'), rr = document.getElementById('ringR');
+  const xv = document.getElementById('xv');
+  const L = [110, 60], R = [290, 60], C = [200, 210], CM = 0.6; // 1 px is 0.6 cm in this drawing
+  const dist = (a, b) => Math.hypot(a[0] - b[0], a[1] - b[1]);
+  const d0 = dist(L, C);
+  function draw(t) {
+    const p = [200 + 90 * Math.sin(t / 2600), 210 + 18 * Math.sin(t / 1700)];
+    head.setAttribute('cx', p[0].toFixed(1)); head.setAttribute('cy', p[1].toFixed(1));
+    const a = dist(L, p), b = dist(R, p);
+    rl.setAttribute('r', a.toFixed(1)); rr.setAttribute('r', b.toFixed(1));
+    xv.textContent = Math.round(Math.hypot(p[0] - 200, p[1] - 210) * CM);
+  }
+  draw(0);
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const loop = t => { draw(t); requestAnimationFrame(loop); };
+    requestAnimationFrame(loop);
+  }
+})();
+</script>
+</body>
+</html>
