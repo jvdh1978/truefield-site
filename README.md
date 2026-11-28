@@ -4,7 +4,7 @@ The product website for TrueField (BalancingAudio). Plain HTML and CSS, no build
 
 - `site/` is the website exactly as it is served: open `site/index.html` in a browser to preview it.
 - Fonts (Sora, Manrope, JetBrains Mono) are hosted with the site, not loaded from Google, under the SIL Open Font License (`site/fonts/OFL-*.txt`).
-- Every push to `main` publishes `site/` on GitHub Pages (`.github/workflows/pages.yml`). The domain is registered at Hostnet; its DNS points at GitHub Pages.
+- Every push to `main` publishes `site/` on GitHub Pages (`.github/workflows/pages.yml`). The site is served at truefieldaudio.com (custom domain in Settings → Pages).
 
 ## Writing for the site
 
