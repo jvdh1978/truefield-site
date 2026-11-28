@@ -73,6 +73,10 @@ nav ul a:hover { color: var(--fg); }
 .plan .head { fill: var(--glow); }
 .plan .label { fill: var(--muted); font: 11px var(--f-mono); }
 .plan .cam { fill: var(--brand); }
+.plan .screen { stroke: var(--fg); stroke-width: 3; stroke-linecap: round; }
+.plan .sofa { fill: none; stroke: var(--line); stroke-width: 2; }
+.plan .spk-t { fill: var(--fg); font: 600 9px var(--f-mono); text-anchor: middle; }
+
 
 section { padding-block: 72px; border-top: 1px solid var(--line); }
 .sec-head { display: grid; gap: 12px; margin-bottom: 36px; max-width: 40em; }
@@ -122,6 +126,7 @@ footer .wrap { padding-block: 40px; color: var(--muted); font-size: 0.9rem; disp
   <a class="maker" href="#about" style="text-decoration:none">by Blue Hill Innovation</a>
   </div>
   <ul>
+    <li><a href="#why">Why</a></li>
     <li><a href="#how">How it works</a></li>
     <li><a href="#setups">Setups</a></li>
     <li><a href="#privacy">Privacy</a></li>
@@ -132,33 +137,48 @@ footer .wrap { padding-block: 40px; color: var(--muted); font-size: 0.9rem; disp
 
 <header class="hero" id="top"><div class="wrap">
   <div class="copy">
-    <span class="eyebrow">Head-tracked speaker balancing</span>
-    <h1>The sweet spot follows you.</h1>
-    <p class="lede">Stereo and surround only sound right in one seat. TrueField knows where you are and shapes what every speaker plays for that place, so you hear the music as it was meant to be heard, wherever you sit.</p>
+    <span class="eyebrow">Surround sound for every seat</span>
+    <h1>Surround sound is made for one seat.</h1>
+    <p class="lede">Films, music and games are mixed for a listener in the exact centre of the speakers. Everywhere else, the sound falls apart. TrueField brings that one perfect seat to wherever you sit.</p>
     <div class="cta">
       <a class="btn" href="#status">Get early access</a>
-      <a class="btn ghost" href="#how">See how it works</a>
+      <a class="btn ghost" href="#why">Why it matters</a>
     </div>
   </div>
   <figure class="plan" style="margin:0">
-    <svg viewBox="0 0 400 300" role="img" aria-label="Room plan: two speakers, a camera and a listener who moves; the sound's centre follows the listener">
+    <svg viewBox="0 0 400 300" role="img" aria-label="Room plan with five surround speakers around a sofa; the listener moves along the sofa and the sound field follows">
       <g class="grid">
         <line x1="0" y1="75" x2="400" y2="75"/><line x1="0" y1="150" x2="400" y2="150"/><line x1="0" y1="225" x2="400" y2="225"/>
         <line x1="100" y1="0" x2="100" y2="300"/><line x1="200" y1="0" x2="200" y2="300"/><line x1="300" y1="0" x2="300" y2="300"/>
       </g>
-      <circle class="sweet" cx="200" cy="210" r="16"/>
-      <text class="label" x="222" y="232">sweet spot</text>
-      <circle id="ringL" class="s-ring" cx="110" cy="60" r="170"/>
-      <circle id="ringR" class="s-ring" cx="290" cy="60" r="170"/>
-      <rect class="s-body" x="96" y="46" width="28" height="28" rx="5"/>
-      <rect class="s-body" x="276" y="46" width="28" height="28" rx="5"/>
-      <rect class="cam" x="192" y="40" width="16" height="10" rx="2"/>
-      <text class="label" x="94" y="34">left</text><text class="label" x="276" y="34">right</text><text class="label" x="182" y="30">camera</text>
-      <circle id="head" class="head" cx="200" cy="210" r="7"/>
+      <line class="screen" x1="130" y1="22" x2="270" y2="22"/>
+      <text class="label" x="276" y="26">screen</text>
+      <rect class="sofa" x="112" y="196" width="176" height="34" rx="10"/>
+      <text class="label" x="182" y="248">sofa</text>
+      <circle class="sweet" cx="200" cy="170" r="14"/>
+      <text class="label" x="220" y="166">sweet spot</text>
+      <g id="rings"></g>
+      <g id="spk"></g>
+      <rect class="cam" x="192" y="28" width="16" height="9" rx="2"/>
+      <circle id="head" class="head" cx="200" cy="208" r="7"/>
     </svg>
-    <figcaption><span>listener <span id="xv">0</span> cm from centre</span><span>sound field: centred on the listener</span></figcaption>
+    <figcaption><span>listener <span id="xv">0</span> cm from centre</span><span>surround field: centred on the listener</span></figcaption>
   </figure>
 </div></header>
+
+<section class="why" id="why"><div class="wrap">
+  <div class="sec-head">
+    <span class="eyebrow">Why</span>
+    <h2>Only one seat in the room gets the real thing</h2>
+    <p>A surround mix is made for a single point, at the same distance from every speaker. In most living rooms that point is an empty spot in front of the sofa, or one seat at best.</p>
+  </div>
+  <div class="facts">
+    <div><h3>Move aside and the picture collapses</h3><p>Sit off-centre and the speakers nearest to you take over. Voices drift away from the screen, and the sound pulls towards the closest corner.</p></div>
+    <div><h3>The space around you breaks up</h3><p>Front and rear no longer join up into one space. A helicopter that should fly over you jumps from box to box.</p></div>
+    <div><h3>Everyone else hears less</h3><p>With three people on the sofa, two of them hear a lesser version of the mix. Lean back or change seats and so do you.</p></div>
+    <div><h3>TrueField moves the sweet spot</h3><p>It knows where you are and brings the full surround picture to that place, so the mix sounds the way it was made, wherever you sit.</p></div>
+  </div>
+</div></section>
 
 <section id="how"><div class="wrap">
   <div class="sec-head">
@@ -167,7 +187,7 @@ footer .wrap { padding-block: 40px; color: var(--muted); font-size: 0.9rem; disp
   </div>
   <ol class="steps">
     <li><h3>The camera finds your head</h3><p>A camera near the screen or speakers measures where you sit, in millimetres from the listening position you set up once.</p></li>
-    <li><h3>The sound is tuned to that place</h3><p>The audio engine prepares what each speaker plays for where you are, so the stereo image and the balance stay right for you, not for an empty chair.</p></li>
+    <li><h3>The sound is tuned to that place</h3><p>The audio engine prepares what each speaker plays for where you are, so the surround picture and the balance stay right for you, not for an empty chair.</p></li>
     <li><h3>You only notice the music</h3><p>Move, lean back or get up: what you hear stays natural, without anything drawing your attention to the system. When you leave, the room settles back to its sweet spot.</p></li>
   </ol>
 </div></section>
@@ -267,17 +287,17 @@ footer .wrap { padding-block: 40px; color: var(--muted); font-size: 0.9rem; disp
 </script>
 <script>
 (() => {
-  const head = document.getElementById('head'), rl = document.getElementById('ringL'), rr = document.getElementById('ringR');
-  const xv = document.getElementById('xv');
-  const L = [110, 60], R = [290, 60], C = [200, 210], CM = 0.6; // 1 px is 0.6 cm in this drawing
-  const dist = (a, b) => Math.hypot(a[0] - b[0], a[1] - b[1]);
-  const d0 = dist(L, C);
+  const NS = 'http://www.w3.org/2000/svg', head = document.getElementById('head');
+  const rings = document.getElementById('rings'), spk = document.getElementById('spk'), xv = document.getElementById('xv');
+  const S = [['L', 110, 62], ['C', 200, 52], ['R', 290, 62], ['SL', 38, 214], ['SR', 362, 214]], CM = 0.6, C = [200, 170];
+  const el = (n, a, p) => { const e = document.createElementNS(NS, n); for (const k in a) e.setAttribute(k, a[k]); p.appendChild(e); return e; };
+  const rs = S.map(([, x, y]) => el('circle', { class: 's-ring', cx: x, cy: y, r: 100 }, rings));
+  S.forEach(([n, x, y]) => { el('rect', { class: 's-body', x: x - 12, y: y - 12, width: 24, height: 24, rx: 5 }, spk); el('text', { class: 'spk-t', x, y: y + 3 }, spk).textContent = n; });
   function draw(t) {
-    const p = [200 + 90 * Math.sin(t / 2600), 210 + 18 * Math.sin(t / 1700)];
+    const p = [200 + 70 * Math.sin(t / 2600), 208 + 6 * Math.sin(t / 1700)];
     head.setAttribute('cx', p[0].toFixed(1)); head.setAttribute('cy', p[1].toFixed(1));
-    const a = dist(L, p), b = dist(R, p);
-    rl.setAttribute('r', a.toFixed(1)); rr.setAttribute('r', b.toFixed(1));
-    xv.textContent = Math.round(Math.hypot(p[0] - 200, p[1] - 210) * CM);
+    S.forEach(([, x, y], i) => rs[i].setAttribute('r', Math.hypot(x - p[0], y - p[1]).toFixed(1)));
+    xv.textContent = Math.round(Math.hypot(p[0] - C[0], p[1] - C[1]) * CM);
   }
   draw(0);
   if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
